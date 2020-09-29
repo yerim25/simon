@@ -7,14 +7,13 @@ let level = 0;
 
 $(document).on("keydown", function () {
   if (!started) {
-    userClickedPattern = [];
     $("#level-title").text("Level " + level);
     nextSequence();
     started = true;
   }
 });
 
-$(".btn").on("click", function (event) {
+$(".btn").on("click", function () {
   let userChosenColor = $(this).attr("id");
   userClickedPattern.push(userChosenColor);
   animatePress(userChosenColor);
@@ -40,6 +39,7 @@ function checkAnswer(currentLevel) {
 }
 
 function nextSequence() {
+    userClickedPattern = [];
   level++;
   $("#level-title").text("Level " + level);
   let randNum = Math.floor(Math.random() * 4);
